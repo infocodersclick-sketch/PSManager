@@ -19,6 +19,7 @@ class GoogleAuthClient extends http.BaseClient {
 
 class GoogleDriveSyncService extends ChangeNotifier {
   final GoogleSignIn _googleSignIn = GoogleSignIn(
+    // Scopes for Google Drive App Data
     scopes: [drive.DriveApi.driveAppdataScope],
   );
 
@@ -29,12 +30,23 @@ class GoogleDriveSyncService extends ChangeNotifier {
 
   Future<bool> signIn() async {
     try {
-      _currentUser = await _googleSignIn.signIn();
+      debugPrint("Starting sign-in process...");
+      _currentUser = await _googleSignIn.signInSilently();
+      if (_currentUser == null) {
+        debugPrint("Silent sign-in failed, trying interactive...");
+        _currentUser = await _googleSignIn.signIn();
+      }
+      
       notifyListeners();
-      return _currentUser != null;
+      
+      if (_currentUser == null) {
+        throw Exception("Sign-in canceled. (Error 10 often means SHA-1 mismatch in Google Console)");
+      }
+      debugPrint("Sign-in successful: ${_currentUser!.email}");
+      return true;
     } catch (e) {
-      debugPrint("Error signing in: $e");
-      return false;
+      debugPrint("Detailed Sign-in Error: $e");
+      rethrow;
     }
   }
 
@@ -80,7 +92,8 @@ class GoogleDriveSyncService extends ChangeNotifier {
       return true;
     } catch (e) {
       debugPrint("Backup error: $e");
-      return false;
+      // Re-throw or handle to let UI know the specific error
+      throw e;
     } finally {
       _setSyncing(false);
     }
@@ -119,7 +132,7 @@ class GoogleDriveSyncService extends ChangeNotifier {
       return true;
     } catch (e) {
       debugPrint("Restore error: $e");
-      return false;
+      throw e;
     } finally {
       _setSyncing(false);
     }

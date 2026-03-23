@@ -49,7 +49,7 @@ class StorageService extends ChangeNotifier {
       final encrypter = enc.Encrypter(enc.AES(_encryptionKey!));
       return encrypter.decrypt(enc.Encrypted.fromBase64(encryptedText), iv: _iv);
     } catch (e) {
-      return 'Error decrypting';
+      return '';
     }
   }
 
@@ -58,29 +58,44 @@ class StorageService extends ChangeNotifier {
     final path = join(dbPath, 'passwords.db');
     _database = await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE passwords(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT,
             username TEXT,
-            password TEXT
+            password TEXT,
+            category TEXT DEFAULT 'general',
+            profilePassword TEXT,
+            notes TEXT
           )
         ''');
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 2) {
+          await db.execute("ALTER TABLE passwords ADD COLUMN category TEXT DEFAULT 'general'");
+          await db.execute("ALTER TABLE passwords ADD COLUMN profilePassword TEXT");
+          await db.execute("ALTER TABLE passwords ADD COLUMN notes TEXT");
+        }
       },
     );
   }
 
   Future<void> loadPasswords() async {
     if (_database == null) return;
-    final List<Map<String, dynamic>> maps = await _database!.query('passwords');
+    final List<Map<String, dynamic>> maps = await _database!.query('passwords', orderBy: 'id DESC');
     _passwords = maps.map((map) {
       return PasswordEntry(
         id: map['id'],
         title: map['title'],
         username: map['username'],
         password: _decrypt(map['password']),
+        category: map['category'] ?? 'general',
+        profilePassword: map['profilePassword'] != null && map['profilePassword'].isNotEmpty
+            ? _decrypt(map['profilePassword'])
+            : null,
+        notes: map['notes'],
       );
     }).toList();
     notifyListeners();
@@ -91,6 +106,11 @@ class StorageService extends ChangeNotifier {
       'title': entry.title,
       'username': entry.username,
       'password': _encrypt(entry.password),
+      'category': entry.category,
+      'profilePassword': entry.profilePassword != null && entry.profilePassword!.isNotEmpty
+          ? _encrypt(entry.profilePassword!)
+          : null,
+      'notes': entry.notes,
     };
     await _database!.insert('passwords', encryptedMap);
     await loadPasswords();
@@ -101,6 +121,11 @@ class StorageService extends ChangeNotifier {
       'title': entry.title,
       'username': entry.username,
       'password': _encrypt(entry.password),
+      'category': entry.category,
+      'profilePassword': entry.profilePassword != null && entry.profilePassword!.isNotEmpty
+          ? _encrypt(entry.profilePassword!)
+          : null,
+      'notes': entry.notes,
     };
     await _database!.update(
       'passwords',

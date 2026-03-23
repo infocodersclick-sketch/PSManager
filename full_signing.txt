@@ -1,0 +1,199 @@
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :gradle:compileKotlin UP-TO-DATE
+
+> Task :gradle:compileJava NO-SOURCE
+
+> Task :gradle:compileGroovy NO-SOURCE
+
+> Task :gradle:pluginDescriptors UP-TO-DATE
+
+> Task :gradle:processResources UP-TO-DATE
+
+> Task :gradle:classes UP-TO-DATE
+
+> Task :gradle:jar UP-TO-DATE
+
+
+
+> Task :app:signingReport
+
+Variant: debug
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+Variant: release
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+Variant: profile
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+Variant: debugAndroidTest
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+
+
+> Task :flutter_secure_storage:signingReport
+
+Variant: debugAndroidTest
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+
+
+> Task :google_sign_in_android:signingReport
+
+Variant: debugAndroidTest
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+
+
+> Task :path_provider_android:signingReport
+
+Variant: debugAndroidTest
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+
+
+> Task :sqflite_android:signingReport
+
+Variant: debugAndroidTest
+
+Config: debug
+
+Store: C:\Users\VGL-PC-341\.android\debug.keystore
+
+Alias: AndroidDebugKey
+
+MD5: 72:67:DB:ED:4D:24:EB:9C:F1:90:74:9B:50:15:55:CF
+
+SHA1: 91:25:93:04:01:65:67:4F:AA:03:9C:5F:D0:E9:1E:98:CB:04:14:7E
+
+SHA-256: F5:49:30:39:EC:9F:2B:05:66:94:BE:A8:EE:BA:B3:84:84:EE:B4:0E:1F:D3:FD:6F:56:8F:A8:17:E1:BF:4E:30
+
+Valid until: Saturday, 21 November, 2054
+
+----------
+
+
+
+[Incubating] Problems report is available at: file:///D:/Paassword_Manager/password_manager/build/reports/problems/problems-report.html
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+
+
+BUILD SUCCESSFUL in 1s
+
+9 actionable tasks: 5 executed, 4 up-to-date
+
+
+
